@@ -48,7 +48,7 @@
                 <i class="fas fa-map"></i>
                 <div class="info">
                     <h3>address :</h3>
-                    <p>San Pedro, Laguna, Philippines - 4023</p>
+                    <p>San Pedro, Laguna, Philippines - 4023</p> 
                 </div>
             </div>
 
@@ -79,7 +79,7 @@
 
     </div>
 
-    <form action="">
+    <form onsubmit="sendEmail(); reset(); return false;">
 
         <div class="inputBox">
             <input type="text" placeholder="your name">
@@ -98,8 +98,27 @@
     </form>
 
 </div>
-
 </section>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail(){
+        Email.send({
+
+         SecureToken: "f18df588-b11e-44ce-90d7-16db6be7e9be",
+    
+    To : 'bienwashere1@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New contact Enquiry",
+    Body : " Name: " + document.getElementById("name").value
+              + "<br> Email: " + document.getElementById("email").value
+              + "<br> Phone no: "+ document.getElementById("phone").value
+              +"<br> Message: " + document.getElementById("message").value
+}).then(
+  message => alert(Message Sent Succesfully)
+);
+    }
+</script>
+
 
 <!-- contact section ends -->
 
